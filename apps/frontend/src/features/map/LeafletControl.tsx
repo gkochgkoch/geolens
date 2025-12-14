@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import { createPortal } from 'react-dom'
 import * as L from 'leaflet'
 import { useMap } from 'react-leaflet'
@@ -13,26 +13,26 @@ export default function LeafletControl({
   children,
 }: LeafletControlProps) {
   const map = useMap()
-  const containerRef = useRef<HTMLDivElement | null>(null)
+  const [container, setContainer] = useState<HTMLDivElement | null>(null)
 
   useEffect(() => {
     const control = new L.Control({ position })
-    const container = L.DomUtil.create('div')
-    containerRef.current = container
+    const el = L.DomUtil.create('div') as HTMLDivElement
 
-    L.DomEvent.disableClickPropagation(container)
-    L.DomEvent.disableScrollPropagation(container)
+    L.DomEvent.disableClickPropagation(el)
+    L.DomEvent.disableScrollPropagation(el)
 
-    control.onAdd = () => container
+    control.onAdd = () => el
     control.addTo(map)
+
+    setContainer(el)
 
     return () => {
       control.remove()
-      containerRef.current = null
+      setContainer(null)
     }
   }, [map, position])
 
-  if (!containerRef.current) return null
-
-  return createPortal(children, containerRef.current)
+  if (!container) return null
+  return createPortal(children, container)
 }
