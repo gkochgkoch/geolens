@@ -1,2 +1,1 @@
-# geolens
-A geospatial learning project built to improve my skills with React and modern map technologies
+# Test project to demostrate geo data handling
