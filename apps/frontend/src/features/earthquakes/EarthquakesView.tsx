@@ -8,9 +8,9 @@ import { useEarthquakes } from './useEarthquakes'
 
 export default function EarthquakesView() {
   const { data = [], isLoading, error } = useEarthquakes();
-  const [enabled, setEnabled] = useState(true)
-  const [minMagUI, setMinMagUI] = useState(0)      // updates instantly
-  const [minMag, setMinMag] = useState(0)          // drives map filtering
+  const [enabled, setEnabled] = useState(true);
+  const [minMagUI, setMinMagUI] = useState(0);
+  const [minMag, setMinMag] = useState(0);
 
   const filtered = useMemo(
     () => (enabled ? data.filter(q => (q.properties.mag ?? -Infinity) >= minMag) : []),

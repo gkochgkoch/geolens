@@ -22,7 +22,6 @@ function EarthquakesLayerComponent({ quakes }: Props) {
       {quakes.map((q) => {
         const [lng, lat] = q.geometry.coordinates
         const mag = q.properties.mag
-
         return (
           <CircleMarker
             key={q.id}
