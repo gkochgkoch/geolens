@@ -10,7 +10,8 @@
     "dev:frontend": "pnpm -F frontend dev",
     "dev:backend": "pnpm -F backend dev",
     "build": "pnpm -F frontend build && pnpm -F backend build",
-    "install:all": "pnpm install"
+    "install:all": "pnpm install",
+    "preview:frontend": "pnpm -F frontend preview"
   },
   "devDependencies": {
     "concurrently": "^9.2.1"
