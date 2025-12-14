@@ -9,7 +9,8 @@ import { useEarthquakes } from './useEarthquakes'
 export default function EarthquakesView() {
   const { data = [], isLoading, error } = useEarthquakes();
   const [enabled, setEnabled] = useState(true)
-  const [minMag, setMinMag] = useState(0)
+  const [minMagUI, setMinMagUI] = useState(0)      // updates instantly
+  const [minMag, setMinMag] = useState(0)          // drives map filtering
 
   const filtered = useMemo(
     () => (enabled ? data.filter(q => (q.properties.mag ?? -Infinity) >= minMag) : []),
@@ -37,11 +38,12 @@ export default function EarthquakesView() {
             </Typography>
 
             <Slider
-              value={minMag}
+              value={minMagUI}
               min={0}
               max={8}
               step={0.5}
-              onChange={(_, v) => setMinMag(v as number)}
+              onChange={(_, v) => setMinMagUI(v as number)}
+              onChangeCommitted={(_, v) => setMinMag(v as number)}
               valueLabelDisplay="auto"
             />
           </Box>
