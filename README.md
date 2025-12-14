@@ -7,7 +7,7 @@
 # project with geodata
 
 ### Frontend
-- React
+- React 19
 - TypeScript
 - Vite
 - Material UI
