@@ -4,7 +4,7 @@
   <tr>
     <td>
 
-# project with geodata
+# A geospatial learning project
 
 ### Frontend
 - React 19
