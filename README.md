@@ -1,5 +1,10 @@
-# project to demonstrate geo data handling, currently displays eqarthquakes for the past week.
 
+
+<table>
+  <tr>
+    <td>
+
+# project with geodata
 
 ### Frontend
 - React
@@ -24,4 +29,13 @@
 - Prettier
 - Concurrently
 
-<img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/5aa6e3ef-aeae-4ae1-a312-6f9c935e6a1a" />
+
+    </td>
+    <td>
+      <img width="500" height="300" alt="image" src="https://github.com/user-attachments/assets/5aa6e3ef-aeae-4ae1-a312-6f9c935e6a1a" />
+    </td>
+  </tr>
+</table>
+
+
+
